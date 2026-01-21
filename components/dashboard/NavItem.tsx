@@ -21,7 +21,9 @@ const NavItem: React.FC<NavItemProps> = ({ icon, label, active, onClick, count }
     >
       <div className="flex items-center">
         <span className={`mr-3 ${active ? 'text-red-600' : 'text-slate-400'}`}>
-          {React.cloneElement(icon as React.ReactElement, { size: 20 })}
+          {React.isValidElement(icon) 
+            ? React.cloneElement(icon as React.ReactElement<any>, { size: 20 })
+            : icon}
         </span>
         {label}
       </div>

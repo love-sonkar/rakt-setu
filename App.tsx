@@ -4,7 +4,7 @@ import Dashboard from './components/Dashboard';
 import UserRequestForm from './components/UserRequestForm';
 import { EmergencyRequest, Donor } from './types';
 
-// Mock Data for Donors (Moved from Dashboard to App for global access)
+// Mock Data for Donors
 const initialDonors: Donor[] = [
   { 
     id: 'd1', 
@@ -65,7 +65,7 @@ const initialDonors: Donor[] = [
 // Mock Data for Requests
 const initialRequests: EmergencyRequest[] = [
   { id: '1', hospital: 'District Hospital Bastar', patientName: 'Ramesh K.', contactNumber: '+919800000000', bloodGroup: 'O+', unitsNeeded: 3, urgency: 'Critical', status: 'Pending', timestamp: '10m ago' },
-  { id: '2', hospital: 'CHC Dantewada', patientName: 'Anita S.', contactNumber: '+919900000000', bloodGroup: 'AB-', unitsNeeded: 1, urgency: 'High', status: 'In Transit', timestamp: '45m ago' },
+  { id: '2', hospital: 'CHC Dantewada', patientName: 'Anita S.', contactNumber: '+919900000000', bloodGroup: 'AB-', unitsNeeded: 1, urgency: 'High', status: 'In Progress', timestamp: '45m ago' },
   { id: '3', hospital: 'Raipur AIIMS', patientName: 'Unknown', contactNumber: '+919700000000', bloodGroup: 'A-', unitsNeeded: 2, urgency: 'Critical', status: 'Pending', timestamp: '1h ago' },
 ];
 
@@ -136,7 +136,10 @@ const App: React.FC = () => {
           requests={requests}
           donors={donors}
           onUpdateDonors={setDonors}
-          onLogout={() => setCurrentView('landing')} 
+          onLogout={() => setCurrentView('landing')}
+          onUpdateRequestStatus={(id, status) => {
+            setRequests(requests.map(r => r.id === id ? { ...r, status } : r));
+          }}
         />
       )}
     </div>

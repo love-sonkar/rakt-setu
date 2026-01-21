@@ -47,7 +47,7 @@ export interface EmergencyRequest {
   bloodGroup: string;
   unitsNeeded: number;
   urgency: 'High' | 'Critical' | 'Moderate';
-  status: 'Pending' | 'Fulfilled' | 'In Transit';
+  status: 'Pending' | 'In Progress' | 'Completed';
   timestamp: string;
 }
 

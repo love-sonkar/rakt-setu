@@ -61,9 +61,9 @@ const DonorNetwork: React.FC<DonorNetworkProps> = ({ donors, onUpdateDonors }) =
     <div className="space-y-6 animate-in fade-in duration-500">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Community Heroes</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Our Doners</h1>
           <div className="flex items-center gap-2 text-slate-500 mt-1">
-            <span>Gamified engagement system</span>
+            {/* <span>Gamified engagement system</span> */}
             <span className="w-1 h-1 rounded-full bg-slate-300"></span>
             <span className="text-slate-700 font-semibold">{donors.length} Total Donors</span>
           </div>
@@ -116,7 +116,8 @@ const DonorNetwork: React.FC<DonorNetworkProps> = ({ donors, onUpdateDonors }) =
           <div className="md:col-span-2 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
               <h3 className="font-bold text-slate-900 flex items-center gap-2">
-                <Trophy className="w-5 h-5 text-yellow-500" /> Top Contributors
+                {/* <Trophy className="w-5 h-5 text-yellow-500" /> */}
+                 Doners
               </h3>
               <div className="relative">
                 <Search className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-slate-400" />
@@ -131,11 +132,11 @@ const DonorNetwork: React.FC<DonorNetworkProps> = ({ donors, onUpdateDonors }) =
                   className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer group"
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm shadow-sm
+                    {/* <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white text-sm shadow-sm
                       ${index === 0 ? 'bg-yellow-400' : index === 1 ? 'bg-slate-300' : index === 2 ? 'bg-orange-300' : 'bg-slate-200 text-slate-500'}
                     `}>
                       {index + 1}
-                    </div>
+                    </div> */}
                     <div>
                       <h4 className="font-bold text-slate-900 group-hover:text-red-600 transition-colors">{donor.name}</h4>
                       <div className="flex items-center gap-2 text-xs text-slate-500">
@@ -144,7 +145,7 @@ const DonorNetwork: React.FC<DonorNetworkProps> = ({ donors, onUpdateDonors }) =
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-red-600 font-bold">{donor.points} Pts</div>
+                    {/* <div className="text-red-600 font-bold">{donor.points} Pts</div> */}
                     <div className="text-xs px-2 py-0.5 bg-slate-100 rounded-full inline-block mt-1 text-slate-600 border border-slate-200">
                       {donor.badge}
                     </div>

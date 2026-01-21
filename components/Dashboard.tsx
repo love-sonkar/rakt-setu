@@ -65,6 +65,24 @@ const initialPartners: Partner[] = [
        { group: 'AB+', units: 10, status: 'Low' },
        { group: 'O-', units: 1, status: 'Critical' },
     ]
+  },
+  {
+    id: 'p3',
+    name: 'District Hospital Bastar',
+    type: 'Hospital',
+    location: 'Bastar',
+    contact: '+919900000000',
+    email: 'dh.bastar@cg.gov.in',
+    stock: [
+       { group: 'A+', units: 2, status: 'Critical' },
+       { group: 'O+', units: 5, status: 'Critical' },
+       { group: 'B+', units: 10, status: 'Low' },
+       { group: 'AB+', units: 1, status: 'Critical' },
+       { group: 'A-', units: 0, status: 'Critical' },
+       { group: 'B-', units: 1, status: 'Critical' },
+       { group: 'O-', units: 0, status: 'Critical' },
+       { group: 'AB-', units: 0, status: 'Critical' },
+    ]
   }
 ];
 
@@ -152,6 +170,21 @@ const Dashboard: React.FC<DashboardProps> = ({
       };
       setSmsMessages(prev => [...prev, outgoingMsg]);
     }, 800);
+  };
+
+  const handlePartnerStockUpdate = (partnerId: string, group: string, newUnits: number) => {
+    setPartners(prevPartners => prevPartners.map(p => {
+      if (p.id !== partnerId) return p;
+      const updatedStock = p.stock.map(s => {
+        if (s.group !== group) return s;
+        let status: 'Critical' | 'Low' | 'Adequate' | 'Surplus' = 'Adequate';
+        if (newUnits < 5) status = 'Critical';
+        else if (newUnits < 15) status = 'Low';
+        else if (newUnits > 50) status = 'Surplus';
+        return { ...s, units: newUnits, status };
+      });
+      return { ...p, stock: updatedStock };
+    }));
   };
 
   const handleTabChange = (tab: typeof activeTab) => {
@@ -338,7 +371,10 @@ const Dashboard: React.FC<DashboardProps> = ({
 
            {/* Tab: Global Inventory */}
            {activeTab === 'inventory' && (
-             <InventoryManager partners={partners} />
+             <InventoryManager 
+                partners={partners} 
+                onUpdateStock={handlePartnerStockUpdate}
+             />
            )}
 
            {/* Tab: SMS Gateway Console */}
