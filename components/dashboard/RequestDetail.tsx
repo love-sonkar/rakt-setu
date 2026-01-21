@@ -91,7 +91,7 @@ const RequestDetail: React.FC<RequestDetailProps> = ({ request, onBack }) => {
                
                <div className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border ${
                  request.status === 'Pending' ? 'bg-yellow-50 text-yellow-700 border-yellow-200' : 
-                 request.status === 'In Transit' ? 'bg-blue-50 text-blue-700 border-blue-200' : 
+                 request.status === 'In Progress' ? 'bg-blue-50 text-blue-700 border-blue-200' : 
                  'bg-green-50 text-green-700 border-green-200'
                }`}>
                  Status: {request.status}
