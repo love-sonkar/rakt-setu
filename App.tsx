@@ -3,20 +3,21 @@ import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import UserRequestForm from './components/UserRequestForm';
 import { EmergencyRequest, Donor } from './types';
+import { useLocation } from 'react-router-dom';
 
 // Mock Data for Donors
 const initialDonors: Donor[] = [
-  { 
-    id: 'd1', 
-    name: 'Vikram Singh', 
-    bloodGroup: 'O+', 
-    lastDonation: '2023-10-15', 
-    points: 1250, 
-    badge: 'Life Saver', 
-    location: 'Raipur', 
-    email: 'vikram.singh@example.com', 
-    phone: '+919827155555', 
-    totalDonations: 12, 
+  {
+    id: 'd1',
+    name: 'Vikram Singh',
+    bloodGroup: 'O+',
+    lastDonation: '2023-10-15',
+    points: 1250,
+    badge: 'Life Saver',
+    location: 'Raipur',
+    email: 'vikram.singh@example.com',
+    phone: '+919827155555',
+    totalDonations: 12,
     nextEligibleDate: '2024-01-15',
     notificationsEnabled: true,
     history: [
@@ -25,17 +26,17 @@ const initialDonors: Donor[] = [
       { id: 'h3', date: '2023-04-05', location: 'Red Cross Camp', campaign: 'Youth Red Cross', units: 1, type: 'Whole Blood' },
     ]
   },
-  { 
-    id: 'd2', 
-    name: 'Priya Sharma', 
-    bloodGroup: 'A+', 
-    lastDonation: '2023-11-01', 
-    points: 980, 
-    badge: 'Guardian', 
-    location: 'Bhilai', 
-    email: 'priya.s@example.com', 
-    phone: '+919425244444', 
-    totalDonations: 8, 
+  {
+    id: 'd2',
+    name: 'Priya Sharma',
+    bloodGroup: 'A+',
+    lastDonation: '2023-11-01',
+    points: 980,
+    badge: 'Guardian',
+    location: 'Bhilai',
+    email: 'priya.s@example.com',
+    phone: '+919425244444',
+    totalDonations: 8,
     nextEligibleDate: '2024-02-01',
     notificationsEnabled: true,
     history: [
@@ -43,17 +44,17 @@ const initialDonors: Donor[] = [
       { id: 'h5', date: '2023-08-01', location: 'Durg District Hospital', units: 1, type: 'Whole Blood' },
     ]
   },
-  { 
-    id: 'd3', 
-    name: 'Rahul Verma', 
-    bloodGroup: 'B-', 
-    lastDonation: '2023-09-20', 
-    points: 850, 
-    badge: 'Hero', 
-    location: 'Bilaspur', 
-    email: 'rahul.v@example.com', 
-    phone: '+919999933333', 
-    totalDonations: 6, 
+  {
+    id: 'd3',
+    name: 'Rahul Verma',
+    bloodGroup: 'B-',
+    lastDonation: '2023-09-20',
+    points: 850,
+    badge: 'Hero',
+    location: 'Bilaspur',
+    email: 'rahul.v@example.com',
+    phone: '+919999933333',
+    totalDonations: 6,
     nextEligibleDate: '2023-12-20',
     notificationsEnabled: false,
     history: [
@@ -70,6 +71,7 @@ const initialRequests: EmergencyRequest[] = [
 ];
 
 const App: React.FC = () => {
+  const location = useLocation();
   const [currentView, setCurrentView] = useState<'landing' | 'dashboard' | 'userRequest'>('landing');
   const [requests, setRequests] = useState<EmergencyRequest[]>(initialRequests);
   const [donors, setDonors] = useState<Donor[]>(initialDonors);
@@ -92,7 +94,7 @@ const App: React.FC = () => {
     // 2. Logic to "Send" notifications
     if (matchCount > 0) {
       const message = `Critical Alert: ${request.unitsNeeded} units of ${request.bloodGroup} needed at ${request.hospital.split('(')[0]}.`;
-      
+
       // Browser Notification API
       if ('Notification' in window && Notification.permission === 'granted') {
         new Notification('RaktSetu Alert', {
@@ -100,7 +102,7 @@ const App: React.FC = () => {
           icon: 'https://cdn-icons-png.flaticon.com/512/535/535234.png' // Generic blood icon URL
         });
       }
-      
+
       alert(`[Simulation] Push Notification sent to ${matchCount} matching donors nearby:\n\n"${message}"`);
     } else {
       alert(`Request Submitted. No matching donors with notifications enabled found nearby, but admin has been notified.`);
@@ -110,7 +112,7 @@ const App: React.FC = () => {
   const handleNewRequest = (request: EmergencyRequest) => {
     setRequests([request, ...requests]);
     setCurrentView('landing');
-    
+
     // Trigger notification logic if urgency is high/critical
     if (request.urgency === 'Critical' || request.urgency === 'High') {
       setTimeout(() => triggerNotification(request), 500);
@@ -121,27 +123,8 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      {currentView === 'landing' ? (
-        <LandingPage 
-          onEnterApp={() => setCurrentView('dashboard')} 
-          onRequestBlood={() => setCurrentView('userRequest')}
-        />
-      ) : currentView === 'userRequest' ? (
-        <UserRequestForm 
-          onSubmit={handleNewRequest} 
-          onCancel={() => setCurrentView('landing')} 
-        />
-      ) : (
-        <Dashboard 
-          requests={requests}
-          donors={donors}
-          onUpdateDonors={setDonors}
-          onLogout={() => setCurrentView('landing')}
-          onUpdateRequestStatus={(id, status) => {
-            setRequests(requests.map(r => r.id === id ? { ...r, status } : r));
-          }}
-        />
-      )}
+      <LandingPage />
+
     </div>
   );
 };
