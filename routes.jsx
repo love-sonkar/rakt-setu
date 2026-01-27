@@ -11,6 +11,7 @@ import BecomeADonerForm from "./components/dashboard/component/BecomeADonerForm.
 import Testimonial from "./components/dashboard/component/Testimonial.jsx";
 import Dashboard from "./components/Dashboard.js";
 import EmergencyPage from "./components/dashboard/component/EmergencyPage.jsx";
+import BloodBankService from "./components/dashboard/component/BloodBankService.js";
 
 
 const routes = createBrowserRouter([
@@ -62,6 +63,10 @@ const routes = createBrowserRouter([
     {
         path: "/testimonial",
         element: <Testimonial />
+    },
+    {
+        path: "/bloodbankservice",
+        element: <BloodBankService />
     },
     {
         path: "/inverntory",

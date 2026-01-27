@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heart, Activity, Users, ArrowRight, ShieldCheck, TrendingUp, AlertTriangle, Smartphone, Droplet, HeartPulse, Hospital, UserCheck, HospitalIcon, HouseIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import NavBar from './common/NavBar';
 import Footer from './common/Footer';
+import ActionSelectionModal from './dashboard/component/ActionSelectionModal';
 
 
 const LandingPage = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen font-sans">
       {/* Navbar */}
@@ -40,7 +44,7 @@ const LandingPage = () => {
               <div className="mb-2 flex flex-row gap-3 justify-center">
 
                 <button
-                  onClick={() => { }}
+                  onClick={() => setIsModalOpen(true)}
                   className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Donate
@@ -49,7 +53,7 @@ const LandingPage = () => {
                     <HeartPulse className="w-5 h-5 fill-current" />
                   </span>
                 </button>
-                <NavLink to='/inverntory'
+                <NavLink to='/bloodbankservice'
 
                   className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
@@ -97,6 +101,11 @@ const LandingPage = () => {
         <div className="absolute bottom-0 right-0 translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-rose-100/40 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
       </section>
 
+      {isModalOpen && (
+        <ActionSelectionModal
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
 
       {/* Footer */}
       <Footer />

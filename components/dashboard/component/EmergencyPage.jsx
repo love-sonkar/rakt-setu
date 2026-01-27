@@ -3,6 +3,7 @@ import RequestsList from '../RequestsList'
 import RequestDetail from '../RequestDetail';
 import NavBar from '@/components/common/NavBar';
 import Footer from '@/components/common/Footer';
+import PageNav from '@/components/common/PageNav';
 
 const initialRequests = [
     { id: '1', hospital: 'District Hospital Bastar', patientName: 'Ramesh K.', contactNumber: '+919800000000', bloodGroup: 'O+', unitsNeeded: 3, urgency: 'Critical', status: 'Pending', timestamp: '10m ago' },
@@ -17,7 +18,7 @@ const EmergencyPage = () => {
     const liveRequests = requests;
     return (
         <div>
-            <NavBar />
+            <PageNav />
             <div className="mt-16 mb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {activeTab === 'requests' && (
