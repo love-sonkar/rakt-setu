@@ -11,7 +11,7 @@ import BecomeADonerForm from "./components/dashboard/component/BecomeADonerForm.
 import Testimonial from "./components/dashboard/component/Testimonial.jsx";
 import Dashboard from "./components/Dashboard.js";
 import EmergencyPage from "./components/dashboard/component/EmergencyPage.jsx";
-import BloodBankService from "./components/dashboard/component/BloodBankService.js";
+import BloodBankService from "./components/dashboard/component/BloodBankService.jsx";
 
 
 const routes = createBrowserRouter([
