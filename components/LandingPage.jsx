@@ -30,7 +30,7 @@ const LandingPage = () => {
               Where Every Drop <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-500">Finds Its Way.</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className=" text-base md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
               Transforming Chhattisgarh's blood transfusion system from a fragmented network into a proactive, intelligent ecosystem. No life should be lost for want of blood.
             </p>
             <div className="flex w-full flex-col sm:flex-row gap-4 justify-center items-center">
@@ -41,11 +41,11 @@ const LandingPage = () => {
               </NavLink>
             </div>
             <div className="mt-4 text-sm text-slate-400">
-              <div className="mb-2 flex flex-row gap-3 justify-center">
+              <div className="mb-2 flex sm:flex-row flex-col gap-3 justify-center">
 
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold md:text-lg text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Donate
 
@@ -55,7 +55,7 @@ const LandingPage = () => {
                 </button>
                 <NavLink to='/bloodbankservice'
 
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold md:text-lg text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Blood Center Service
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-red-50 text-red-600 group-hover:bg-red-100">
@@ -63,10 +63,10 @@ const LandingPage = () => {
                   </span>
                 </NavLink>
               </div>
-              <div className="mb-2 flex flex-row gap-3 justify-center">
+              <div className="mb-2 flex sm:flex-row flex-col gap-3 justify-center">
 
                 <NavLink to='/donersignup'
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold md:text-lg text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Blood Doners New
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-50 text-rose-600 group-hover:bg-rose-100">
@@ -74,7 +74,7 @@ const LandingPage = () => {
                   </span>
                 </NavLink>
                 <NavLink to='/testimonial'
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold md:text-lg text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Benificiery
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-50 text-rose-600 group-hover:bg-rose-100">
@@ -83,7 +83,7 @@ const LandingPage = () => {
                   </span>
                 </NavLink >
                 <NavLink to='/dashboard'
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold md:text-lg text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   Admin
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-rose-50 text-rose-600 group-hover:bg-rose-100">

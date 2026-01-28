@@ -14,9 +14,13 @@ const PageNav = () => {
                         <span className="text-xl font-bold text-slate-900 tracking-tight">RaktSetu<span className="text-red-600">Community</span></span>
                     </NavLink>
                     <NavLink to='/'
-                        className="text-slate-600 hover:text-red-600 font-medium flex items-center gap-1 transition-colors"
+                        className="md:block hidden text-slate-600 hover:text-red-600 font-medium flex items-center gap-1 transition-colors"
                     >
                         <ChevronLeft className="w-4 h-4" /> Back to Home
+                    </NavLink>
+                    <NavLink to='/'
+                        className="text-slate-600 hover:text-red-600 font-medium flex items-center gap-1 transition-colors">
+                        <ChevronLeft className="w-6 h-6" />
                     </NavLink>
                 </div>
             </div>
