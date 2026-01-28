@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import App from "./App.js";
 import Crisis from "./components/dashboard/component/Crisis.jsx";
 import Impact from "./components/dashboard/component/Impact.jsx";
@@ -14,7 +14,7 @@ import EmergencyPage from "./components/dashboard/component/EmergencyPage.jsx";
 import BloodBankService from "./components/dashboard/component/BloodBankService.jsx";
 
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
     {
         path: "/",
         element: <App />,
