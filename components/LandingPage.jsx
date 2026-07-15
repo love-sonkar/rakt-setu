@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Activity, Users, ArrowRight, ShieldCheck, TrendingUp, AlertTriangle, Smartphone, Droplet, HeartPulse, Hospital, UserCheck, HospitalIcon, HouseIcon } from 'lucide-react';
+import { Users, ShieldCheck, Droplet, HeartPulse, UserCheck, HouseIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import NavBar from './common/NavBar';
 import Footer from './common/Footer';
@@ -12,10 +12,7 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
-      {/* Navbar */}
       <NavBar />
-
-      {/* Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden bg-gradient-to-br from-slate-50 to-red-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">

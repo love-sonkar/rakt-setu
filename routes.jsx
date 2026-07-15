@@ -1,5 +1,5 @@
-import { createBrowserRouter, createHashRouter } from "react-router-dom";
-import App from "./App.js";
+import { createHashRouter } from "react-router-dom";
+import App from "./App.jsx";
 import Crisis from "./components/dashboard/component/Crisis.jsx";
 import Impact from "./components/dashboard/component/Impact.jsx";
 import Solution from "./components/dashboard/component/Solution.jsx";

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
-import Dashboard from './components/Dashboard';
-import UserRequestForm from './components/UserRequestForm';
 import { EmergencyRequest, Donor } from './types';
 import { useLocation } from 'react-router-dom';
 
 // Mock Data for Donors
-const initialDonors: Donor[] = [
+const initialDonors = [
   {
     id: 'd1',
     name: 'Vikram Singh',
@@ -64,17 +62,17 @@ const initialDonors: Donor[] = [
 ];
 
 // Mock Data for Requests
-const initialRequests: EmergencyRequest[] = [
+const initialRequests = [
   { id: '1', hospital: 'District Hospital Bastar', patientName: 'Ramesh K.', contactNumber: '+919800000000', bloodGroup: 'O+', unitsNeeded: 3, urgency: 'Critical', status: 'Pending', timestamp: '10m ago' },
   { id: '2', hospital: 'CHC Dantewada', patientName: 'Anita S.', contactNumber: '+919900000000', bloodGroup: 'AB-', unitsNeeded: 1, urgency: 'High', status: 'In Progress', timestamp: '45m ago' },
   { id: '3', hospital: 'Raipur AIIMS', patientName: 'Unknown', contactNumber: '+919700000000', bloodGroup: 'A-', unitsNeeded: 2, urgency: 'Critical', status: 'Pending', timestamp: '1h ago' },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const location = useLocation();
   const [currentView, setCurrentView] = useState<'landing' | 'dashboard' | 'userRequest'>('landing');
-  const [requests, setRequests] = useState<EmergencyRequest[]>(initialRequests);
-  const [donors, setDonors] = useState<Donor[]>(initialDonors);
+  const [requests, setRequests] = useState(initialRequests);
+  const [donors, setDonors] = useState(initialDonors);
 
   // Request notification permission on mount
   useEffect(() => {
@@ -83,7 +81,7 @@ const App: React.FC = () => {
     }
   }, []);
 
-  const triggerNotification = (request: EmergencyRequest) => {
+  const triggerNotification = (request) => {
     // 1. Filter donors who match blood group and have notifications enabled
     const matchingDonors = donors.filter(
       d => d.bloodGroup === request.bloodGroup && d.notificationsEnabled
@@ -109,7 +107,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleNewRequest = (request: EmergencyRequest) => {
+  const handleNewRequest = (request) => {
     setRequests([request, ...requests]);
     setCurrentView('landing');
 
