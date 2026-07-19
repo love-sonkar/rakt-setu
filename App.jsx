@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
-import { EmergencyRequest, Donor } from './types';
 import { useLocation } from 'react-router-dom';
 
 // Mock Data for Donors
@@ -70,7 +69,7 @@ const initialRequests = [
 
 const App = () => {
   const location = useLocation();
-  const [currentView, setCurrentView] = useState<'landing' | 'dashboard' | 'userRequest'>('landing');
+  const [currentView, setCurrentView] = useState('landing');
   const [requests, setRequests] = useState(initialRequests);
   const [donors, setDonors] = useState(initialDonors);
 
